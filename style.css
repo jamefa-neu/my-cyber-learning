@@ -1,0 +1,137 @@
+/* Hacker Theme Setup */
+:root {
+    --main-bg: #0d0d0d;
+    --neon-green: #00ff41;
+    --dark-green: #003b00;
+    --text-color: #e0e0e0;
+    --font-stack: 'Courier New', Courier, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* CRT Scanline Effect Overlay */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.2) 50%,
+        rgba(0,0,0,0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+h1 {
+    color: var(--neon-green);
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px var(--neon-green);
+    margin-bottom: 10px;
+}
+
+.terminal-text {
+    color: var(--neon-green);
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.neon-line {
+    border: 0;
+    height: 1px;
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+    margin-top: 20px;
+}
+
+/* Card Grid Styling */
+#content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid var(--neon-green);
+    background-color: rgba(0, 20, 0, 0.8);
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--dark-green);
+}
+
+.card-header {
+    border-bottom: 1px dashed var(--neon-green);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #333;
+    margin-bottom: 15px;
+    filter: grayscale(80%); /* Makes images look older/techy */
+}
+
+.card-img:hover {
+    filter: grayscale(0%);
+}
+
+.card-body {
+    font-size: 0.9rem;
+}
+
+/* Footer & Animation */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--neon-green);
+    font-size: 0.8rem;
+}
+
+.blink {
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
